@@ -1,2 +1,2 @@
-web: gunicorn shopvuex.wsgi
+web: gunicorn spa4.wsgi
 
