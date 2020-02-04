@@ -8,6 +8,21 @@ from django.http import HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from django.contrib import messages
 
+from rest_framework.response import Response
+from reservations.serializers import TableSerializer, TimestartSerializer, AvailSerializer
+from rest_framework import viewsets
+import json
+
+class TableViewSet(viewsets.ModelViewSet):
+    queryset = Table.objects.all()
+    serializer_class = TableSerializer
+class TimestartViewSet(viewsets.ModelViewSet):
+    queryset = Timestart.objects.all()
+    serializer_class = TimestartSerializer
+class AvailViewSet(viewsets.ModelViewSet):
+    queryset = Avail.objects.all()
+    serializer_class = AvailSerializer
+
 def home(request,):
     return render(request, 'home.html')
 
